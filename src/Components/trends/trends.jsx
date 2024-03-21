@@ -5,7 +5,7 @@ import More from "/iconblanc/More-2.svg"
 import Profile6 from '/Tweet-Avatar/Profile-Photo6.png'
 import Verified from "/iconblanc/Verified.svg";
 import posts from "./data"
-
+import Twitterfooter from "../../../public/Twitter-Footer.png"
 
 const trendsPosts = posts.map((el, i) => {
     return {
@@ -18,7 +18,7 @@ const trendsPosts = posts.map((el, i) => {
 
 // console.log(trendsPosts)
 
-function Posts ({ name ,userName,src}) {
+function Posts({ name, userName, src }) {
     return (
         <>
             <h1>{userName}</h1>
@@ -84,15 +84,18 @@ export default function Trends() {
                 <div className="follow-content">
                     {
                         trendsPosts.map(item => {
-                            return <Posts 
-                                name={item.name} 
-                                userName={item.userName} 
-                                src={item.src} 
-                            
+                            return <Posts
+                                name={item.name}
+                                userName={item.userName}
+                                src={item.src}
+
                             />
                         })
                     }
                 </div>
+            </div>
+            <div className='info-content'>
+                <p className='info'>Terms of Service Privacy Policy Cookie Policy Imprint Ads info More ... ©2021 Twitter, Inc.</p>
             </div>
         </div>
     )
