@@ -1,27 +1,27 @@
-import './App.css'
-import Header from './Components/Header'
-import TweetEditor from './Components/Tweet-Editor'
-import Tweets from './Components/Tweets'
-import SideBar from './Components/sidebar/sidebar'
-import Trends from './Components/trends/trends'
-
+import { Outlet } from "react-router-dom";
+import "./App.css";
+import Sidebar from "./Components/Sidebar";
+import Trends from "./Components/Trends";
+import { TweetContext } from "./contexts/tweets";
+import json from "./data/initial-data.json";
 
 function App() {
+  const data = { ...json };
   return (
     <>
-      <SideBar/>
-      
-      <div className="timeline">
-        <Header />
-        <TweetEditor />
-        <Tweets />
-      </div>
-      
-      <Trends/>
-
-      
+      <TweetContext.Provider value={data}>
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+        <div className="timeline">
+          <Outlet />
+        </div>
+        <div className="trends">
+          <Trends />
+        </div>
+      </TweetContext.Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
