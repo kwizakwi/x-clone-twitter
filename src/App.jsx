@@ -4,12 +4,20 @@ import Sidebar from "./Components/Sidebar";
 import Trends from "./Components/Trends";
 import { TweetContext } from "./contexts/tweets";
 import json from "./data/initial-data.json";
+import useFetch from "./useFetch";
+import { useEffect, useState } from "react";
 
 function App() {
-  const data = { ...json };
+  const { data:tweets} = useFetch('http://localhost:3000/tweets')
+const {data:user} = useFetch('http://localhost:3000/current-user')
+// const [datatweets,setDatatweets]=useState(tweets)
+// useEffect(()=>{ setDatatweets(datatweets)},[datatweets])
+// console.log(setDatatweets)
+console.log(tweets);
+console.log(user);
   return (
     <>
-      <TweetContext.Provider value={data}>
+      <TweetContext.Provider value={{tweets,user}}>
         <div className="sidebar">
           <Sidebar />
         </div>

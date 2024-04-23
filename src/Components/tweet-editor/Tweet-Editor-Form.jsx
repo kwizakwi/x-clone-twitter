@@ -6,7 +6,7 @@ import { useContext, useRef } from "react";
 import { TweetContext } from "../../contexts/tweets";
 
 export default function TweetEditorForm({ tweets, setTweets }) {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset , formState:{errors}}= useForm();
   const dataTweets = useContext(TweetContext);
   const input = useRef();
 
@@ -26,7 +26,7 @@ export default function TweetEditorForm({ tweets, setTweets }) {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="tweet-editor-form">
-      <TweetEditorInput register={register} ref={input} />
+      <TweetEditorInput register={register} ref={input} error={errors}/>
       <TweetEditorButtons />
     </form>
   );

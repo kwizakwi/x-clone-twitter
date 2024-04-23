@@ -12,15 +12,15 @@ const useFetch = (url)=> {
         .get(url)
         .then((response => {
             setData(response.data);
-            console.log(response.data);
             setIsPending(false);
             setError(null);
-        })
+        }))
             .catch((err) => {
                 setIsPending(false);
                 setError(err.message);
-            }));
+            });
         },[url]);
+    
     return { data, isPending, error };
 }
 
