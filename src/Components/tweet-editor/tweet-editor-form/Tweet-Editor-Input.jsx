@@ -14,8 +14,8 @@ export default function TweetEditorInput({ register, ref,error }) {
       name="Post"
       className="tweet-editor-input"
       placeholder="What’s happening?"
-      maxLength={10}
-      {...register("text", { required:true , maxLength: 10 })}
+      maxLength={180}
+      {...register("text", { required:true , maxLength: 180 })}
       />
 
     {/* {error.text && <p  error={ error} >Seulement 180 caractères sont autorisés</p>} */}
